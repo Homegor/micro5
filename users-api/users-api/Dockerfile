@@ -1,5 +1,5 @@
 #выбираем образ для сборки java
-FROM openjdk:8-alpine as build
+FROM dockette/openjdk8 as build
 
 #выбираем рабочую папку внутри контейнера
 WORKDIR /usr/src/app
@@ -16,7 +16,7 @@ RUN chmod 777 mvnw && \
 EXPOSE 8083
 
 #выбираем образ для запуска java
-FROM openjdk:8-alpine 
+FROM dockette/openjdk8
 
 #выбираем рабочую папку внутри контейнера
 WORKDIR /app

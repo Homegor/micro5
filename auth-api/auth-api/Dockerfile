@@ -4,7 +4,10 @@ RUN apk --no-cache add curl git && \
 curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 WORKDIR /go/src/app
 
-COPY . . 
+COPY . .
+
+RUN apk add --no-cache gcc musl-dev
+
 RUN dep ensure && \
 go build -o auth-api
 
