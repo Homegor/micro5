@@ -1,0 +1,15 @@
+version: "3.6"
+
+services:
+  auth-api:
+    image: micro5/auth-api
+    build: ./auth-api/auth-api
+    hostname: auth-api
+    container_name: auth-api
+    ports:
+      - "8081:8081"
+    environment:
+      - AUTH_API_PORT=8081
+      - JWT_SECRET=myfancysecret
+      - USERS_API_ADDRESS=http://users-api:8083
+      - ZIPKIN_URL=http://zipkin:9411/api/v2/spans
